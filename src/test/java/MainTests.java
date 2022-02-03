@@ -4,6 +4,7 @@ import com.pages.HomePage;
 import org.junit.After;
 import org.junit.Before;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class MainTests {
@@ -24,5 +25,6 @@ public class MainTests {
     @After
     public void tearDown() {
         userOperations.delete();
+        closeWebDriver();
     }
 }
