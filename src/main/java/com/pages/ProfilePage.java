@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.model.User;
 import io.qameta.allure.Step;
@@ -22,5 +23,15 @@ public class ProfilePage extends LoginPage {
         return new User(this.email.getValue(),
                 this.password.getValue(),
                 this.name.getValue());
+    }
+
+    @Step
+    public boolean isDisplayedExitButton() {
+        return this.exitButton.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    @Step
+    public void clickToExitButton() {
+        this.exitButton.click();
     }
 }

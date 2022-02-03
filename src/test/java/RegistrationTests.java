@@ -13,15 +13,14 @@ import org.junit.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 
-public class RegistrationTests {
+public class RegistrationTests extends MainTests{
 
-    LoginPage loginPage;
+    LoginPage loginPage = page(LoginPage.class);
 
     @Before
     public void init() {
-        this.loginPage =
-                open("https://stellarburgers.nomoreparties.site/login",
-                        LoginPage.class);
+        super.init();
+        homePage.clickToProfileLink();
     }
 
     @Test

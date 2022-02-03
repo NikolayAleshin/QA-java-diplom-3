@@ -15,6 +15,7 @@ public class MainTests {
     @Before
     public void init() {
         user = userOperations.register();
+//        System.setProperty("webdriver.chrome.driver", "src/test/resources/yandexdriver.exe");
         this.homePage =
                 open("https://stellarburgers.nomoreparties.site",
                         HomePage.class);

@@ -1,5 +1,6 @@
 import com.model.User;
 import com.pages.LoginPage;
+import com.pages.ProfilePage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
@@ -14,7 +15,7 @@ public class LoginAndLogoutTests extends MainTests {
     @Test
     @DisplayName("Login home page correct test")
     @Description("Basic success test")
-    public void loginInHomePageTest(){
+    public void loginInHomePageTest() {
 
         homePage.clickToEnterButton();
         checkAndLoginUser();
@@ -23,7 +24,7 @@ public class LoginAndLogoutTests extends MainTests {
     @Test
     @DisplayName("Login personal office page correct test")
     @Description("Basic success test")
-    public void loginInPersonalOfficeTest(){
+    public void loginInPersonalOfficeTest() {
 
         homePage.clickToProfileLink();
         checkAndLoginUser();
@@ -32,7 +33,7 @@ public class LoginAndLogoutTests extends MainTests {
     @Test
     @DisplayName("Login registration page correct test")
     @Description("Basic success test")
-    public void loginInRegistrationPageTest(){
+    public void loginInRegistrationPageTest() {
 
         homePage.clickToProfileLink();
         loginPage.clickToRegistrationLink();
@@ -43,12 +44,29 @@ public class LoginAndLogoutTests extends MainTests {
     @Test
     @DisplayName("Login forgot password page correct test")
     @Description("Basic success test")
-    public void loginInForgotPasswordPageTest(){
+    public void loginInForgotPasswordPageTest() {
 
         homePage.clickToProfileLink();
         loginPage.clickToForgotPasswordLink();
         loginPage.clickToEnterLink();
         checkAndLoginUser();
+    }
+
+    @Test
+    @DisplayName("Login and logout correct test")
+    @Description("Basic success test")
+    public void loginAndLogoutTest() {
+
+        homePage.clickToProfileLink();
+        checkAndLoginUser();
+
+        homePage.clickToProfileLink();
+        ProfilePage profilePage = page(ProfilePage.class);
+        Assert.assertTrue("Кнопка Выход", profilePage.isDisplayedExitButton());
+
+        profilePage.clickToExitButton();
+
+        Assert.assertTrue("Надпись Вход", loginPage.checkVisibleEnterText());
     }
 
     private void checkAndLoginUser() {
