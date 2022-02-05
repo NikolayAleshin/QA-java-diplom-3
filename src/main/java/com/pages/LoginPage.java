@@ -41,14 +41,14 @@ public class LoginPage extends HomePage {
     public void setLoginAndEnter(User user) {
         this.email.setValue(user.getEmail());
         this.password.setValue(user.getPassword());
-        this.enterButton.shouldBe(Condition.visible, Condition.enabled).doubleClick();
-        generalText.shouldBe(Condition.visible);
+        this.enterButton.shouldBe(Condition.exist, Condition.enabled).doubleClick();
+        generalText.shouldBe(Condition.exist);
     }
 
     @Step
     public boolean checkVisibleEnterText() {
-        enterText.shouldBe(Condition.visible);
-        return this.enterText.isDisplayed();
+        enterText.shouldBe(Condition.exist);
+        return this.enterText.exists();
     }
 
     @Step

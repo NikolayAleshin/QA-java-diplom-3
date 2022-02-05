@@ -26,6 +26,6 @@ public class RegisterPage extends LoginPage {
 
     @Step
     public boolean isVisibleErrorPasswordText() {
-        return this.errorPasswordText.isDisplayed();
+        return this.errorPasswordText.exists();
     }
 }

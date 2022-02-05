@@ -27,7 +27,7 @@ public class ProfilePage extends LoginPage {
 
     @Step
     public boolean isDisplayedExitButton() {
-        return this.exitButton.shouldBe(Condition.visible).isDisplayed();
+        return this.exitButton.shouldBe(Condition.exist).exists();
     }
 
     @Step

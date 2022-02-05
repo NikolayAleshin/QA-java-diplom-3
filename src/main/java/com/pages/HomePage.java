@@ -1,6 +1,5 @@
 package com.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
@@ -29,20 +28,20 @@ public class HomePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Булки']")
     private SelenideElement bunSection;
 
-    @FindBy(how = How.XPATH, using = "//h2[text()='Булки']")
-    private SelenideElement bunSectionText;
+    @FindBy(how = How.XPATH, using = "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Булки']")
+    private SelenideElement bunSectionCurrentText;
 
     @FindBy(how = How.XPATH, using = "//span[text()='Соусы']")
     private SelenideElement saucesSection;
 
-    @FindBy(how = How.XPATH, using = "//h2[text()='Соусы']")
-    private SelenideElement saucesSectionText;
+    @FindBy(how = How.XPATH, using = "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Соусы']")
+    private SelenideElement saucesSectionCurrentText;
 
     @FindBy(how = How.XPATH, using = "//span[text()='Начинки']")
     private SelenideElement fillingsSection;
 
-    @FindBy(how = How.XPATH, using = "//h2[text()='Начинки']")
-    private SelenideElement fillingsSectionText;
+    @FindBy(how = How.XPATH, using = "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Начинки']")
+    private SelenideElement fillingsSectionCurrentText;
 
     @Step
     public void clickToProfileLink(){
@@ -72,18 +71,18 @@ public class HomePage {
     @Step
     public boolean clickToBunSection() {
         this.bunSection.click();
-        return this.bunSectionText.shouldBe(Condition.visible).is(Condition.visible);
+        return this.bunSectionCurrentText.exists();
     }
 
     @Step
     public boolean clickToSaucesSection() {
         this.saucesSection.click();
-        return this.saucesSectionText.shouldBe(Condition.visible).is(Condition.visible);
+        return this.saucesSectionCurrentText.exists();
     }
 
     @Step
     public boolean clickToFillingsSection() {
         this.fillingsSection.click();
-        return this.fillingsSectionText.shouldBe(Condition.visible).is(Condition.visible);
+        return this.fillingsSectionCurrentText.exists();
     }
 }

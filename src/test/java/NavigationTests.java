@@ -3,7 +3,6 @@ import com.pages.ProfilePage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 
@@ -13,11 +12,6 @@ public class NavigationTests extends MainTests {
 
     LoginPage loginPage = page(LoginPage.class);
     ProfilePage profilePage = page(ProfilePage.class);
-
-    @Before
-    public void init() {
-        super.init();
-    }
 
     @Test
     @DisplayName("NavigationSection profile link correct test")
@@ -66,17 +60,17 @@ public class NavigationTests extends MainTests {
     @Description("Basic success test")
     public void navigationSectionBunAndFillingAndSaucesTest(){
 
-        Assert.assertTrue("Секция начинки", homePage.clickToFillingsSection());
-        Assert.assertTrue("Секция булки", homePage.clickToBunSection());
-        Assert.assertTrue("Секция соусы", homePage.clickToSaucesSection());
+        Assert.assertTrue("Секция начинки раздел не выбран", homePage.clickToFillingsSection());
+        Assert.assertTrue("Секция булки раздел не выбран", homePage.clickToBunSection());
+        Assert.assertTrue("Секция соусы раздел не выбран", homePage.clickToSaucesSection());
 
         homePage.clickToProfileLink();
         loginPage.setLoginAndEnter(user);
         homePage.clickToLogoHome();
 
-        Assert.assertTrue("Секция начинки", homePage.clickToFillingsSection());
-        Assert.assertTrue("Секция булки", homePage.clickToBunSection());
-        Assert.assertTrue("Секция соусы", homePage.clickToSaucesSection());
+        Assert.assertTrue("Секция начинки раздел не выбран", homePage.clickToFillingsSection());
+        Assert.assertTrue("Секция булки раздел не выбран", homePage.clickToBunSection());
+        Assert.assertTrue("Секция соусы раздел не выбран", homePage.clickToSaucesSection());
 
     }
 }

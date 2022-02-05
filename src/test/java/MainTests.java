@@ -1,4 +1,5 @@
 import com.UserOperations;
+import com.codeborne.selenide.Configuration;
 import com.model.User;
 import com.pages.HomePage;
 import org.junit.After;
@@ -17,6 +18,7 @@ public class MainTests {
     public void init() {
         user = userOperations.register();
 //        System.setProperty("webdriver.chrome.driver", "src/test/resources/yandexdriver.exe");
+        Configuration.startMaximized = true;
         this.homePage =
                 open("https://stellarburgers.nomoreparties.site",
                         HomePage.class);
